@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file">
+	
+	<select id="getAllCount" resultType="Integer">
+		SELECT COUNT(*) FROM file 
+		WHERE IS_STATUS = 1
+	</select>
+	
+	<select id="getContentFileList" parameterType="int" resultType="fileDto">
+		SELECT * FROM file
+		WHERE CONTENT_ID = #{VALUE}
+		ORDER BY REG_DATE DESC
+	</select>
+	
+	<select id="getContentFile" parameterType="int" resultType="fileDto">
+		SELECT * FROM file
+		WHERE FILE_ID = #{VALUE}
+	</select>
+	
+	<select id="getLastFileID" resultType="int">
+		SELECT FILE_ID FROM chahoo_groupware.file ORDER BY FILE_ID DESC LIMIT 1
+	</select>
+	
+	<insert id="createContentFile" parameterType="contentDto">
+		INSERT INTO file (CONTENT_ID, file.NAME, EXT, SIZE, PATH, REG_DATE ) 
+		VALUES
+		(  #{content_id}, #{name}, #{ext}, #{size}, #{path}, NOW() )
+	</insert>
+	
+	
+	<update id="updateContentFile" parameterType="fileDto">
+		UPDATE file 
+		SET  CONTENT_ID = #{content_id}, PATH=#{path} ,REG_DATE =  NOW()
+		WHERE FILE_ID = #{file_id}
+	</update>
+	
+	 
+	<delete id="deleteContentFile" parameterType="int">
+		DELETE from file 
+		WHERE FILE_ID = #{VALUE}
+	</delete>
+
+</mapper>

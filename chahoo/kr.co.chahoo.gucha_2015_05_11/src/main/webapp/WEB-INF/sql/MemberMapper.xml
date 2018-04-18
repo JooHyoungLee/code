@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	
+	<select id="checkEmail" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM member 
+		WHERE EMAIL = #{VALUE}
+	</select>
+	
+	<select id="getGroupList"  resultType="groupDto">
+		SELECT * FROM chahoo_groupware.group 
+	</select>
+	
+	<select id="getGradeList" parameterType="String"  resultType="gradeDto">
+		SELECT * FROM chahoo_groupware.grade WHERE GROUP_ID = #{VALUE} ORDER BY NO ASC
+	</select>
+	
+	<!-- CustomUserDetails -->
+	<select id="login" parameterType="customUserDetails" resultType="int">
+		SELECT COUNT(*) FROM member 
+		WHERE EMAIL = #{username} AND member.PASSWORD = PASSWORD(#{password})
+	</select>
+	
+	<select id="getMemberList"  resultType="memberDto">
+		SELECT * FROM chahoo_groupware.group T1, grade T2, member T3
+		WHERE T1.GROUP_ID = T2.GROUP_ID AND T2.GRADE_ID = T3.GRADE_ID
+	</select>
+	
+	<select id="getMemberInfo" parameterType="String" resultType="memberDto">
+		SELECT * FROM chahoo_groupware.group T1, grade T2, member T3
+		WHERE T1.GROUP_ID = T2.GROUP_ID AND T2.GRADE_ID = T3.GRADE_ID AND T3.MEMBER_ID = #{VALUE}
+	</select>
+	
+	<select id="getMemberInfoEmail" parameterType="String" resultType="memberDto">
+		SELECT * FROM chahoo_groupware.group T1, grade T2, member T3
+		WHERE T1.GROUP_ID = T2.GROUP_ID AND T2.GRADE_ID = T3.GRADE_ID AND T3.EMAIL = #{VALUE}
+	</select>
+	
+	<insert id="createMember" parameterType="memberDto">
+		INSERT INTO member ( MEMBER_ID, GRADE_ID, member.NAME, member.PASSWORD, EMAIL, CELL_PHONE, TELE_PHONE, REG_DATE, IS_STATUS ) 
+		VALUES
+		(#{member_id}, #{grade_id}, #{name}, PASSWORD(#{password}), #{email}, #{cell_phone}, #{tele_phone}, NOW(), #{is_status} )
+	</insert>
+	
+	<update id="updateMemberInfo" parameterType="memberDto">
+		UPDATE member 
+		SET  NAME = #{name}, 
+		CELL_PHONE = #{cell_phone}, TELE_PHONE = #{tele_phone}, GRADE_ID = #{grade_id}
+		WHERE MEMBER_ID = #{member_id}
+	</update>
+	
+	<update id="updatePassword" parameterType="memberDto">
+		UPDATE member 
+		SET  member.PASSWORD = PASSWORD(#{password})
+		WHERE MEMBER_ID = #{member_id}
+	</update>
+	
+	<update id="updateMemberStatus" parameterType="memberDto">
+		UPDATE member 
+		SET  IS_STATUS = #{is_status}
+		WHERE MEMBER_ID = #{member_id}
+	</update>
+	
+	<update id="deleteMember" parameterType="String">
+		UPDATE member 
+		SET IS_STATUS = 0
+		WHERE MEMBER_ID = #{VALUE}
+	</update>
+	
+	<select id="getLastMemberID" resultType="int">
+		SELECT member_id FROM chahoo_groupware.member ORDER BY REG_DATE DESC LIMIT 1
+	</select>
+	
+</mapper>

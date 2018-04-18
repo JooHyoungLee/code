@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/chahoo_groupware?useUnicode=true&amp;characterEncoding=utf8" />
+		<property name="username" value="root"></property>
+		<property name="password" value="qwe123"></property>
+	</bean>
+	
+	<bean id="mysqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="mysqlDataSource"></property>
+		<property name="configLocation" value="WEB-INF/sql/mysqlMapConfig.xml"></property>
+		<property name="mapperLocations" value="WEB-INF/sql/*Mapper.xml"/>
+	</bean>
+	
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="mysqlSessionFactory" />
+	</bean>
+	
+	<!-- Data Access Object(DAO) -->
+	
+	<bean id="boardDao" class="kr.co.chahoo.board.BoardDao">
+		<property name="sqlSessionFactory" ref="mysqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="fileDao" class="kr.co.chahoo.file.FileDao">
+		<property name="sqlSessionFactory" ref="mysqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="memberDao" class="kr.co.chahoo.member.MemberDao">
+		<property name="sqlSessionFactory" ref="mysqlSessionFactory"></property>
+	</bean>
+	
+	<bean id="eventDao" class="kr.co.chahoo.event.EventDao">
+		<property name="sqlSessionFactory" ref="mysqlSessionFactory"></property>
+	</bean>
+	
+</beans>

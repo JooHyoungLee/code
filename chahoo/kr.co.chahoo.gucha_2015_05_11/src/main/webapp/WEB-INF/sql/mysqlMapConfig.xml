@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false"/>
+		<setting name="useGeneratedKeys" value="true"/>
+		<setting name="defaultExecutorType" value="REUSE"/>
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="kr.co.chahoo.common.model.ConditionSet" alias="conditionSet"/>		
+		
+		<typeAlias type="kr.co.chahoo.board.model.BoardDto" alias="boardDto"/>	
+		<typeAlias type="kr.co.chahoo.board.model.ContentDto" alias="contentDto"/>	
+		<typeAlias type="kr.co.chahoo.board.model.ContentTypeDto" alias="contentTypeDto"/>
+		<typeAlias type="kr.co.chahoo.board.model.ContentYearDto" alias="contentYearDto"/>
+		
+		<typeAlias type="kr.co.chahoo.file.model.FileDto" alias="fileDto"/>	
+		
+		<typeAlias type="kr.co.chahoo.member.model.MemberDto" alias="memberDto"/>	
+		<typeAlias type="kr.co.chahoo.member.model.GroupDto" alias="groupDto"/>	
+		<typeAlias type="kr.co.chahoo.member.model.GradeDto" alias="gradeDto"/>	
+		
+		<typeAlias type="kr.co.chahoo.security.CustomUserDetails" alias="customUserDetails"/>	
+		
+		<typeAlias type="kr.co.chahoo.event.model.EventDto" alias="eventDto"/>	
+		
+	</typeAliases>
+		
+</configuration>

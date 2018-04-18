@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="event">
+	
+	<select id="getAllCount" resultType="int">
+		SELECT COUNT(*) FROM event 
+	</select>
+	
+	<select id="getLastEventId" resultType="int">
+		SELECT EVENT_ID FROM event ORDER BY EVENT_ID DESC LIMIT 1
+	</select>
+	
+	<select id="getEventList" parameterType="conditionSet" resultType="eventDto">
+		SELECT * FROM event T1, member T2
+		WHERE 
+		T1.MEMBER_ID = T2.MEMBER_ID
+		ORDER BY T1.REG_DATE DESC
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="getEventRagneList" parameterType="conditionSet" resultType="eventDto">
+		SELECT * FROM event T1, member T2
+		WHERE 
+		T1.MEMBER_ID = T2.MEMBER_ID 
+		AND T1.START between #{dateFrom} and #{dateTo}
+		ORDER BY T1.REG_DATE DESC
+	</select>
+	
+	<select id="getEvent" parameterType="int" resultType="eventDto">
+		SELECT * FROM event T1, member T2
+		WHERE T1.EVENT_ID = #{VALUE} AND T1.MEMBER_ID = T2.MEMBER_ID
+	</select>
+	
+	<insert id="createEvent" parameterType="eventDto">
+		INSERT INTO event ( MEMBER_ID, START, END, ALL_DAY, TITLE, DESCRIPTION, BORDER_COLOR, COLOR, TEXT_COLOR, URL, REG_DATE) 
+		VALUES
+		( #{member_id}, #{start}, #{end}, #{all_day}, #{title}, #{description}, #{border_color}, #{color}, #{text_color} ,#{url} ,NOW())
+		<selectKey resultType="int" keyProperty="no" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<update id="updateEvent" parameterType="eventDto">
+		UPDATE event 
+		SET  START = #{start}, END = #{end}, TITLE = #{title}, DESCRIPTION =  #{description}, BORDER_COLOR = #{border_color}, COLOR = #{COLOR}, TEXT_COLOR = #{TEXT_COLOR}
+		WHERE EVENT_ID = #{event_id}
+	</update>
+	
+	<delete id="deleteEvent" parameterType="int">
+		DELETE FROM event
+		WHERE EVENT_ID = #{VALUE} 
+	</delete>
+	
+</mapper>

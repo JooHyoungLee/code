@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	
+	<select id="getAllCount" parameterType="conditionSet" resultType="int">
+		SELECT COUNT(*) FROM content 
+		WHERE IS_STATUS = 1 AND BOARD_ID = #{key}
+	</select>
+	
+	<select id="getContentList" parameterType="conditionSet" resultType="contentDto">
+		SELECT * FROM content T1, member T2, content_type T3
+		WHERE T1.IS_STATUS = 1
+		AND T1.MEMBER_ID = T2.MEMBER_ID
+		AND T1.BOARD_ID = #{key}
+		AND T1.CONTENT_TYPE_ID = T3.CONTENT_TYPE_ID
+		ORDER BY T1.REG_DATE DESC
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="getBoardList"  resultType="boardDto">
+		SELECT * FROM board
+	</select>
+	
+	<select id="getBoard" parameterType="String"  resultType="boardDto">
+		SELECT * FROM board
+		WHERE
+		board_id = #{VALUE}
+	</select>
+	
+	<select id="getContentYear"  resultType="String">
+		SELECT * FROM content_year
+	</select>
+	
+	<select id="getContentYearCountList"  resultType="contentYearDto">	
+		SELECT CONTENT_YEAR,COUNT(*) AS year_count FROM content 
+		WHERE BOARD_ID ='store' AND CONTENT_TYPE_ID ='project' GROUP BY CONTENT_YEAR;
+	</select>
+	
+	<select id="getBoardContentTypeList" parameterType="String" resultType="contentTypeDto">
+		SELECT * FROM content_type WHERE board_id = #{VALUE} ORDER BY NO ASC
+	</select>
+
+	<select id="getContentSearchCount" parameterType="conditionSet" resultType="Integer">
+		SELECT COUNT(*) FROM content 
+		<where>
+		IS_STATUS = 1 AND BOARD_ID = #{key} AND BOARD_ID = #{key}
+			<choose>
+			 <when test="intParam == 1">AND TITLE LIKE CONCAT('%', #{strParam}, '%')</when>
+			 <when test="intParam == 2">AND CONTENT_TEXT LIKE CONCAT('%', #{strParam}, '%')</when>
+			 <otherwise></otherwise>
+			</choose>
+			<if test='ctype != null and ctype neq ""'>
+                 AND CONTENT_TYPE_ID = #{ctype}
+         	</if>
+         	<if test='year != null and year neq ""' >
+                 AND CONTENT_YEAR = #{year}
+         	</if>
+		</where>
+	</select>
+	
+	<select id="getContentSearchList" parameterType="conditionSet" resultType="contentDto">
+		SELECT * FROM content T1, member T2, content_type T3
+ 		<where>
+		T1.IS_STATUS = 1 AND T1.MEMBER_ID = T2.MEMBER_ID AND T1.BOARD_ID = #{key} AND T1.CONTENT_TYPE_ID = T3.CONTENT_TYPE_ID
+			<choose>
+			 <when test="intParam == 1">AND T1.TITLE LIKE CONCAT('%', #{strParam}, '%')</when>
+			 <when test="intParam == 2">AND T1.CONTENT_TEXT LIKE CONCAT('%', #{strParam}, '%')</when>
+			 <otherwise></otherwise>
+			</choose>
+			<if test='ctype != null and ctype neq ""'>
+                 AND T1.CONTENT_TYPE_ID = #{ctype}
+         	</if>
+         	<if test='year != null and year neq ""' >
+                 AND T1.CONTENT_YEAR = #{year}
+         	</if>
+		</where>
+		ORDER BY T1.REG_DATE DESC
+		LIMIT #{offset}, #{limit}
+	</select>	
+	
+	<select id="getContent" parameterType="int" resultType="contentDto">
+		SELECT * FROM content T1, member T2, content_type T3
+		WHERE T1.CONTENT_ID = #{VALUE} AND T1.MEMBER_ID = T2.MEMBER_ID AND T1.CONTENT_TYPE_ID = T3.CONTENT_TYPE_ID
+	</select>
+	
+	<insert id="createContent" parameterType="contentDto">
+		INSERT INTO content ( BOARD_ID, CONTENT_TYPE_ID, CONTENT_YEAR,MEMBER_ID, TITLE, CONTENT_TEXT, REG_DATE, MOD_DATE,COUNT, IS_FILE, IS_STATUS ) 
+		VALUES
+		( #{board_id}, #{content_type_id}, #{content_year},#{member_id}, #{title}, #{content_text}, NOW(), NOW(), 0,#{is_file} ,1 )
+		<selectKey resultType="int" keyProperty="no" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<update id="updateContent" parameterType="contentDto">
+		UPDATE content 
+		SET  CONTENT_TYPE_ID = #{content_type_id}, CONTENT_YEAR = #{content_year} ,TITLE = #{title}, CONTENT_TEXT = #{content_text}, MOD_DATE =  NOW(), IS_FILE = #{is_file}
+		WHERE CONTENT_ID = #{content_id}
+	</update>
+	
+	<update id="updateContentFile" parameterType="contentDto">
+		UPDATE content 
+		SET  IS_FILE = #{is_file}
+		WHERE CONTENT_ID = #{content_id}
+	</update>
+	
+	<update id="deleteContent" parameterType="int">
+		UPDATE content 
+		SET IS_STATUS = 0
+		WHERE CONTENT_ID = #{VALUE}
+	</update>
+	
+	<update id="updateCounts" parameterType="int">
+		UPDATE content 
+		SET COUNT = COUNT + 1
+		WHERE CONTENT_ID = #{VALUE}
+	</update>
+	
+	<select id="getLastContentID" resultType="int">
+		SELECT CONTENT_ID FROM chahoo_groupware.content ORDER BY CONTENT_ID DESC LIMIT 1
+	</select>
+	
+</mapper>
