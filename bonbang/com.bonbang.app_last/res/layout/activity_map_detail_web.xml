@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bonbang.app.activity.maps.MapDetailWebActivity" >
+
+    <WebView
+        android:id="@+id/detail_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" 
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_height="30dp" >
+
+            <TextView
+                android:id="@+id/tv_web_detail_office_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:singleLine="true"
+                android:gravity="left|center_vertical"
+                android:text="TextView" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/btn_detail_tel" />
+
+                <TextView
+                    android:id="@+id/tv_web_detail_office_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical|left"
+                    android:text="TextView" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/btn_web_detail_call_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+           	android:background="#ff7713"
+           	android:textColor="#ffffff"
+            android:text="연락받기" />
+
+        <Button
+            android:id="@+id/btn_web_detail_call_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffa613"
+            android:textColor="#55411c"
+            android:text="연락하기" />
+
+    </LinearLayout>
+    </LinearLayout>
+    
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">본방</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_map_list">MapListActivity</string>
+    <string name="title_activity_map_detail">MapDetailActivity</string>
+    <string name="title_activity_map_detail_web">MapDetailWebActivity</string>
+    <string name="title_activity_dailog">DailogActivity</string>
+    <string name="title_activity_start">StartActivity</string>
+
+</resources>

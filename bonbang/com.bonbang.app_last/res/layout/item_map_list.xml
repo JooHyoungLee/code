@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/in_item"
+    android:minHeight="40dp"
+    android:padding="2dp">
+ <ImageView
+        android:id="@+id/thumbImage"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/placeholder" />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:gravity="center_vertical"
+     android:orientation="vertical" >
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+
+         <ImageView
+             android:id="@+id/itme_office_icon"
+             android:layout_width="20dp"
+             android:layout_height="20dp"
+             android:visibility="gone"
+             android:src="@drawable/list_office_icon" />
+
+         <TextView
+             android:id="@+id/item_tv_bojung"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textColor="#000"
+             android:textSize="20sp"
+             android:text="TextView" />
+
+         <TextView
+             android:id="@+id/item_tv_gunmul"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+              android:visibility="gone"
+             android:text="TextView" />
+
+         <TextView
+             android:id="@+id/item_tv_gujo"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:visibility="gone"
+             android:text="TextView" />
+
+     </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+         
+         <ImageView
+             android:id="@+id/itme_office_home"
+             android:layout_width="20dp"
+             android:layout_height="20dp"
+             android:visibility="gone"
+             android:src="@drawable/list_office_home" />
+
+         <TextView
+             android:id="@+id/item_tv_address"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textColor="#9d8658"
+             android:textSize="14sp"
+             android:text="TextView" />
+
+         <TextView
+             android:id="@+id/item_tv_floor"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+              android:textColor="#9d8658"
+              android:textSize="14sp"
+             android:text="TextView" />
+
+     </LinearLayout>
+
+     
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+         
+         <ImageView
+             android:id="@+id/itme_office_tel"
+             android:layout_width="20dp"
+             android:layout_height="20dp"
+             android:visibility="gone"
+             android:src="@drawable/list_office_tel" />
+
+        <TextView
+         android:id="@+id/item_tv_subject"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textColor="#000"
+         android:textSize="14sp"
+         android:text="TextView" />
+
+     </LinearLayout>
+     
+
+ </LinearLayout>
+    
+</LinearLayout>

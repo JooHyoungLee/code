@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fbece1"
+    android:gravity="center_horizontal"
+    tools:context="com.bonbang.app.activity.LoginActivity" >
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="비밀번호를 입력하세요" />
+
+    <EditText
+        android:id="@+id/et_passwd_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/default_box"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="230dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_login_only"
+        />
+    
+    <Button
+        android:id="@+id/btn_passwd_find"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
+         android:background="@drawable/btn_login_find_passwd"
+        />
+
+
+</LinearLayout>

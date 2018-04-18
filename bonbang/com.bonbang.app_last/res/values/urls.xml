@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="root_url">http://bonbangapp.com</string>
+    <string name="url_map">/view/app_view_count_ajax.php</string>
+    <string name="login">/view/user/login_ajax.php</string>
+    <string name="join">/app/app_get_mjoin.php</string>
+    
+    <string name="bang_list">/app/view_list.php</string>
+	<string name="subway">/view/app_subway_ajax.php</string>
+    <string name="bang_detail">/app/get_room_detail.php</string>
+    <string name="bang_detail_web">/app/get_room_detail_html_and.php?no=</string>
+    
+    <string name="subway_recom">/app/get_subway_recom.php</string>
+    <string name="subway_list">/app/get_subway_list.php</string>
+    <string name="map_view_count">/app/app_get_map_count_all.php</string>
+    
+    <string name="join_temp">/app/app_get_temp_mjoin.php</string>
+     <string name="login_temp">/app/app_get_temp_login.php</string>
+    <string name="login_auth">/app/app_get_temp_login_pass.php</string>
+    
+    <string name="main_fav_max_9">/app/app_get_main_recom_room.php</string>
+    <string name="main_fav_subway">/app/app_get_main_recom_subway.php</string>
+    <string name="main_fav_office">/app/app_get_main_recom_estate.php</string>
+    
+    <string name="req_sms">/gsms/app_sms_send.php</string>
+    <string name="req_sms_result">/app/app_join_sms_result.php</string>
+    
+    <string name="office_join"> /app/app_post_cjoin.php</string>
+    
+    
+   
+    
+</resources>

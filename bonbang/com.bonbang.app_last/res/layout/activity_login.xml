@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fbece1"
+    android:gravity="center_horizontal"
+    tools:context="com.bonbang.app.activity.LoginActivity" >
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="가입한 이메일 주소를 입력하세요" />
+
+    <EditText
+        android:id="@+id/et_email_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="예)bonbang@gmail.com"
+		android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/default_box"
+        android:inputType="textEmailAddress" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/btn_email_login"
+        />
+    
+    <Button
+        android:id="@+id/btn_login_join"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+         android:background="@drawable/btn_login_join"
+        />
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아직 본방 회원이 아니신가요?" />
+    
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이메일주소만 입력하시면 간단하게" />
+    
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="본방의 회원이 되실수 있습니다!" />
+
+</LinearLayout>

@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bonbang.app.MapDetailWebActivity" >
+
+    <item
+        android:id="@+id/menu_item_share"
+        android:actionProviderClass="android.widget.ShareActionProvider"
+        android:showAsAction="ifRoom"
+        android:title="Share"/>
+    <item
+        android:id="@+id/menu_item_fav"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/bar_fav"
+        android:title="@string/action_settings"/>
+
+</menu>

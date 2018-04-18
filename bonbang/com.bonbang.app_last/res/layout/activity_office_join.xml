@@ -1,0 +1,188 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fbece1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.bonbang.app.activity.LoginActivity" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="15dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/office_man" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/office_text" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_office_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/default_box"
+                android:hint="공인중개사 상호명을 입력하세요"
+                android:inputType="text"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" >
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_office_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/default_box"
+                android:hint="대표자명을 입력하세요"
+                android:inputType="text"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_office_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/default_box"
+                android:hint="이메일을 입력하세요"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_office_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/default_box"
+                android:hint="중개사무소 주소를 입력하세요"
+                android:inputType="text"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_office_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/default_box"
+                android:hint="중개사무소 전화번호를 입력하세요(유선)"
+                android:inputType="phone"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_office_cellphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/default_box"
+                android:hint="핸드폰 번호를 입력하세요"
+                android:inputType="phone"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_office_fax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/default_box"
+                android:hint="팩스번호를 입력하세요"
+                android:inputType="phone"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" >
+            </EditText>
+            
+             <EditText
+        android:id="@+id/et_office_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호"
+		android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="@drawable/default_box"
+        android:password="true"
+        android:inputType="text" >
+    </EditText>
+    
+        <EditText
+        android:id="@+id/et_office_password_ck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호 확인"
+		android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="@drawable/default_box"
+        android:password="true"
+        android:inputType="text" >
+    </EditText>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/office_text_end" />
+
+            <Button
+                android:id="@+id/btn_office_join"
+                android:layout_width="220dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_office_join" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

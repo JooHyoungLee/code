@@ -1,0 +1,69 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bonbangapp.android.MainActivity" >
+
+     <item
+        android:id="@+id/action_more"
+        android:icon="@drawable/main_logo_settings_48"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="더보기">
+    <menu>
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/menu_btn01"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="홈 바로가기"/>
+    <item
+        android:id="@+id/action_recent"
+        android:icon="@drawable/menu_btn02"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="최근 살펴본 방"/>
+    <item
+        android:id="@+id/action_fav"
+        android:icon="@drawable/menu_btn03"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="찜한 방 보기"/>
+    <item
+        android:id="@+id/action_qa"
+        android:icon="@drawable/menu_btn04"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="문의한 방 보기"/>
+    <item
+        android:id="@+id/action_reg"
+        android:icon="@drawable/menu_btn05"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="방 등록하기"/>
+    <item
+        android:id="@+id/action_rbang"
+        android:icon="@drawable/menu_btn06"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="등록한 방 관리하기"/>
+    <item
+        android:id="@+id/action_sbang"
+        android:icon="@drawable/menu_btn07"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="등록번호로 조회"/>
+    <item
+        android:id="@+id/action_join"
+        android:icon="@drawable/menu_btn08"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:textColor="#FF2222"
+        android:title="회원가입 및 로그인"/>
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/menu_btn09"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="설정"/>
+</menu>
+</item>
+</menu>
